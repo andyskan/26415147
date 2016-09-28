@@ -1,4 +1,4 @@
 #!/usr/bin/perl
 
-$str="kecil\Ubesar";
-print"$str\n";
+$str="kucing \U besar";
+print "$str\n";
