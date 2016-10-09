@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+@nama;
+@nrp
+@alamat;
+@nomor;
+
+$number=0;
+$n=<stdin>;
+
+
+while ($number < $n ) {
+$nrp[$number]=<stdin>;
+$nama[$number]=<stdin>;
+$nama[$number]=<stdin>;
+$nama[$number]=<stdin>;
+alamat
+
