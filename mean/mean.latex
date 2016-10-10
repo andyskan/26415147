@@ -1,0 +1,41 @@
+\documentclass[14.4pt]{article}
+
+\title{Rata-rata}
+\author{Kevin A.Shianto}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Rerata merupakan salah satu konsep sentral dalam statistika matematis dan, bersama dengan varians, menjadi bagian penting dalam berbagai penurunan berbagai metode statistika.
+
+Dipandang dari sisi matematis, rerata adalah momen pertama dari suatu peubah acak. Momen pertama mengenai rerata dari suatu peubah acak disebut simpangan (deviasi).
+
+\section{Implementation}
+{\Large
+$n = 5$ }
+
+% Latex table
+\begin{flushleft} %pengganti center
+ \begin{tabular}{|| c c ||}%format
+  \hline
+    No & Nilai \\
+  \hline
+    1 & 5 \\
+    2 & 8 \\
+    3 & 7 \\
+    4 & 4 \\
+  \hline
+ \end{tabular}
+\end{flushleft}
+
+{\LARGE
+Rumus Dasar :\\
+$Mean = \frac{\sum_{i=1}^{i=n} nilai}{n}$ \\
+$Mean = \frac{(5+8+7+4)}{4}$ \\
+$Mean = \frac{24}{4}$ \\
+$Mean = 6$ \\
+}
+\end{document}
