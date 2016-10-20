@@ -12,8 +12,8 @@ def isprime(number):
 
 
 def main():
-    processor = JobProcessor( 'tweak', 'dd06.ecs.baylor.edu' )
-    for number, result in enumerate( processor.imap(isprime, xrange(2, 10000) ) ):
+    processor = JobProcessor( 'test', '0.0.0.0' )
+    for number, result in enumerate( processor.imap(isprime, xrange(2, 50000) ) ):
         if result:
             print number+2
 
