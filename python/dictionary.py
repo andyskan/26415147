@@ -14,6 +14,12 @@ dict2=dict.copy() #copy dictionary to dictionary 2
 
 dict.clear() #clear dictionary
 
-print dict2
+print "Dict 2",dict2
 
-print dict
+print "Dict 1",dict
+
+print dict2.items() #return a list of dictionaries
+print dict2.values() #return a list of values
+dict.update(dict2)
+
+print "Dictionary :",dict
