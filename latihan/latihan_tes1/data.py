@@ -9,12 +9,11 @@ for x in range (1,12):
   with open('pangan.json') as data_file:
 	data=json.load(data_file)
   for temp in data['data']:
-	if(type(temp['average'==str):
-      		rata.append(temp['average'])
+	     if temp['average'] is not None:
+      		rata.append(int(temp['average']))
                 print temp['average'] 
 
-
-print (sum(rata))
+print "Average : ",(sum(rata)/len(rata))
 
 
 
