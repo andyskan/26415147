@@ -11,9 +11,11 @@ for x in range (1,12):
   for temp in data['data']:
 	     if temp['average'] is not None:
       		rata.append(int(temp['average']))
-                print temp['average'] 
-
+#                print temp['average'] 
+print "Total :",(sum(rata))
+print "Length:",len(rata)
 print "Average : ",(sum(rata)/len(rata))
+
 
 
 
