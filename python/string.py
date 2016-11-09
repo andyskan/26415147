@@ -8,3 +8,7 @@ print (str[2:8])     # 'n:m' print charahacter from n to m
 print (str[2:])      # Prints string starting from n index character
 print (str * 2)      # Prints string n times
 print (str + "Yang cantik") # Prints string with additional string (concatenated)
+
+#input python
+str2 = input("Enter your input: ");
+print "Received input is : ", str2
