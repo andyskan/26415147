@@ -9,10 +9,10 @@ cursor = db.cursor()
 
 # Inserts value
 sql = """INSERT INTO jurusan VALUES
-  (274,'Kecantikan'
+  (284,'Sastra Pemrograman'
   )"""
 cursor.execute(sql)
-
+cursor.execute("INSERT INTO jurusan VALUES(264,'Informatika')")
 # disconnect from server
 db.close()
 
