@@ -12,7 +12,7 @@ cursor.execute("DROP TABLE IF EXISTS MAHASISWA")
 
 # Create table as per requirement
 sql = """CREATE TABLE jurusan(
-         id_jur  NUMBER(7) NOT NULL,
+         id_jur  INT  NOT NULL,
          namajur CHAR(20),
          PRIMARY KEY(id_jur)
          )"""

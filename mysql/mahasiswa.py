@@ -13,11 +13,12 @@ cursor.execute("DROP TABLE IF EXISTS MAHASISWA")
 
 # Create table as per requirement
 sql = """CREATE TABLE mahasiswa(
-    nrp       NUMBER(7) CONSTRAINT nrp_pk PRIMARY KEY,
-    nama      VARCHAR2(30),
+    nrp       INT,
+    nama      CHAR(30),
     tgl_lahir DATE,
-    id_jur    NUMBER(7),
-    CONSTRAINT mahasiswa_fk_id_jur FOREIGN KEY(id_jur) REFERENCES JURUSAN(id_jur));"""
+    id_jur    INT,
+    PRIMARY KEY (nrp),
+    FOREIGN KEY (id_jur) REFERENCES jurusan(id_jur))"""
 cursor.execute(sql)
 
 # disconnect from server
