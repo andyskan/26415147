@@ -1,0 +1,9 @@
+arrow
+bow
+hammer
+hammer
+knife
+shield
+shield
+sword
+sword
