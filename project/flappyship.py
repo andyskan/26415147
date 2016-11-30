@@ -7,7 +7,7 @@ from kivy.uix.button import Button
 from kivy.core.window import Window
 from kivy.properties import NumericProperty
 from kivy.clock import Clock
-fryom kivy.graphics import Rectangle
+from kivy.graphics import Rectangle
 from random import *
 from kivy.config import Config
 from kivy.uix.image import Image
@@ -137,7 +137,7 @@ class GUI(Widget):
 			Clock.unschedule(self.update)
 			Clock.schedule_interval(self.update, 1.0/60.0)
 		restartButton.size = (Window.width*.3, Window.width*.1)
-		restartButton.pos = Window.width*0.5-restartBUtton.width/2, Window.height*0.5
+		restartButton.pos = Window.width*0.5-restartButton.width/2, Window.height*0.5
 		restartButton.bind(on_release=restart_button)
 		self.parent.add_widget(restartButton)
 
@@ -152,7 +152,7 @@ class GUI(Widget):
 		for k in self.asteroidList:
 			if k.collide_widget(self.ship):
 				print 'Game Over'
-				self.gameOver
+				self.gameOver()
 				Clock.unschedule(self.update)
 			k.update()
 
