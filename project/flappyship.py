@@ -1,13 +1,16 @@
 #!/usr/bin/python
 
 from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.widget import Widget
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.core.window import Window
 from kivy.properties import NumericProperty
 from kivy.clock import Clock
-from kivy.graphics import Rectangle
+from kivy.core.image import Image
+from kivy.graphics import Color, Rectangle
 from random import *
 from kivy.config import Config
 from kivy.uix.image import Image
@@ -21,7 +24,7 @@ from functools import partial
 #setup graphics
 Config.set('graphics','resizeable', 0)
 #graphics
-Window.clearcolor = (0,0,0,1.)
+#Window.clearcolor = (1,0.5,0,1.)
 #sound
 up=SoundLoader.load('naik.wav')
 class WidgetDrawer(Widget):
@@ -30,13 +33,14 @@ class WidgetDrawer(Widget):
 		super(WidgetDrawer, self).__init__(**kwargs)
 		with self.canvas:
 			self.size = (Window.width*.002*25,Window.width*.002*25)
+			self.image=Image(source='lol.png')
+                        self.image.size=(Window.width*1.5,Window.height*1.5) 
 			self.rect_bg=Rectangle(source=imageStr,pos=self.pos,size=self.size)
 			self.bind(pos=self.update_graphics_pos)
 			self.x=self.center_x
 			self.y=self.center_y
 			self.pos=(self.x, self.y)
 			self.rect_bg.pos=self.pos
-
 	def update_graphics_pos(self,instance,value):
 		self.rect_bg.pos=value
 
@@ -167,4 +171,3 @@ class ClientApp(App):
 
 if __name__ == '__main__' :
 	ClientApp().run()
-
