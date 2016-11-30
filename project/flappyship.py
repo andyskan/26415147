@@ -112,8 +112,8 @@ class GUI(Widget):
 		ypos = ypos*Window.height*.0625
 		tmpAsteroid.y = ypos
 		tmpAsteroid.velocity_y = 0
-		vel = 10
-		tmpAsteroid.velocity_x = -1
+		vel = randint(10,50)
+		tmpAsteroid.velocity_x = -0.1*vel
 		self.asteroidList.append(tmpAsteroid)
 		self.add_widget(tmpAsteroid)
 
