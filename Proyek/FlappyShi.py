@@ -1,32 +1,31 @@
 #!/usr/bin/python
 
 from kivy.app import App
-from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
-from kivy.uix.gridlayout import GridLayout
 from kivy.uix.widget import Widget
 from kivy.uix.label import Label
 from kivy.uix.button import Button
-from kivy.core.window import Window
-from kivy.properties import NumericProperty
-from kivy.clock import Clock
-from kivy.core.image import Image
-from kivy.graphics import Color, Rectangle
-from random import *
-from kivy.config import Config
-from kivy.uix.image import Image
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.image import Image
+from kivy.core.window import Window
+from kivy.properties import NumericProperty
 from kivy.properties import ObjectProperty
-from kivy.core.audio import SoundLoader
+from kivy.clock import Clock
+
 from kivy.graphics import Rectangle, Color, Canvas
 from functools import partial
+from random import *
+from kivy.config import Config
 
 #setup graphics
-Config.set('graphics','resizeable', 0)
-#graphics
-Window.clearcolor = (0,0,0.025,1.)
-#sound
-up=SoundLoader.load('naik.wav')
+Config.set('graphics','resizeable',0)
+
+Window.clearcolor = (0,0,0,1.)
+
+class MyButton(Button):
+	def __init__(self, **kwargs):
+		super(MyButton, self).__init__(**kwargs)
+		self.font_size = Window.width*0.018
 
 class SmartMenu(Widget):
 	buttonList = []
@@ -59,7 +58,7 @@ class SmartMenu(Widget):
 		self.addButtons()
 
 class SmartStartMenu(SmartMenu):
-	buttonList = ['Easy', 'Hard', 'Medium', 'About']
+	buttonList = ['start', 'about']
 
 	def __init__(self, **kwargs):
 		super(SmartStartMenu, self).__init__(**kwargs)
@@ -80,35 +79,30 @@ class SmartStartMenu(SmartMenu):
 		self.img.opacity = 0.35
 		self.add_widget(self.img)
 
-
 class WidgetDrawer(Widget):
-
 	def __init__(self, imageStr, **kwargs):
 		super(WidgetDrawer, self).__init__(**kwargs)
+
 		with self.canvas:
-			self.size =  (Window.width*.002*25,Window.width*.002*25)
-                 #       self.size2=(Window.width*1,Window.width*1)
-		#	self.wimg = Image(source='lol.png')
-			self.image=Image(source='lol.png')
-			self.image.size=(Window.width*1,Window.height*1)
-		#	self.image=Rectangle(source='lol.png',pos=self.pos,size=self.size2)
-                       #self.image.size=(Window.width,Window.height)
-                        self.image.opacity=0.025
-			self.rect_bg=Rectangle(source=imageStr,pos=self.pos,size=self.size)
+
+			self.size = (Window.width*.002*25,Window.width*.002*25)
+			self.rect_bg = Rectangle(source=imageStr,pos=self.pos,size=self.size)
 			self.bind(pos=self.update_graphics_pos)
-			self.x=self.center_x
-			self.y=self.center_y
-			self.pos=(self.x, self.y)
-			self.rect_bg.pos=self.pos
-	def update_graphics_pos(self,instance,value):
-		self.rect_bg.pos=value
+			self.x = self.center_x
+			self.y = self.center_y
+			self.pos = (self.x, self.y)
+			self.rect_bg.pos = self.pos
 
-	def setSize(self,width, height):
-		self.size=(width, height)
+	def update_graphics_pos(self, instance, value):
+		self.rect_bg.pos = value
 
-	def setPOs(xpos,ypos):
-		self.x=xpos
-		self.y=ypos
+	def setSize(self, width, height):
+		self.size = (width, height)
+
+	def setPos(xpos, ypos):
+		self.x = xpos
+		self.y = ypos
+
 
 class ScoreWidget(Widget):
 	def __init__(self, **kwargs):
@@ -181,9 +175,9 @@ class ScoreWidget(Widget):
 			starString = 'gray_star.png'
 		starRectFive = Rectangle(source=starString, pos=starPos, size=starSize)
 
-
-
 class Asteroid(WidgetDrawer):
+	imageStr = './sandstone_1.png'
+	rect_bg=Rectangle(source=imageStr)
 	velocity_x = NumericProperty(0)
 	velocity_y = NumericProperty(0)
 
@@ -200,13 +194,33 @@ class Ship(WidgetDrawer):
 
 	velocity_x = NumericProperty(0)
 	velocity_y = NumericProperty(0)
+	flameSize = (Window.width*.03,Window.width*0.05)
 
 	def move(self):
 		self.x = self.x + self.velocity_x
 		self.y = self.y + self.velocity_y
 
-		if self.y == Window.height*0.95:
+		if self.y < Window.height*0.05:
+			self.impulse = 1
+			self.grav = -0.1
+
+		if self.y > Window.height*0.95:
 			self.impulse = -3
+
+	def checkBulletNPCCollision(self,j):
+		if self.k.collide_widget(j):
+			j.health = j.health - self.k.bulletDamage
+			j.attackFlag = 'True'
+			self.k.age = self.k.lifespan+10
+
+	def checkBulletStageCollision(self,q):
+		if self.k.collide_widget(q):
+			try:
+				if q.type == 'asteroid':
+					q.health = q.health - self.k.bulletDamage
+					self.k.age = self.k.lifespan+10
+			except:
+				print 'Gak bisa mengenai asteroid'
 
 	def determineVelocity(self):
 		self.grav = self.grav*1.05
@@ -216,66 +230,127 @@ class Ship(WidgetDrawer):
 		self.velocity_y = self.impulse + self.grav
 		self.impulse = 0.95*self.impulse
 
+	def drawArrow(self, *largs):
+		with self.canvas:
+			flamePos = (self.pos[0]-Window.width*0.02,self.pos[1]+Window.width*.01)
+			flameRect = Rectangle(source='./flame.png',pos=flamePos,size=self.flameSize)
+			def removeArrows(arrow, *largs):
+				self.canvas.remove(arrow)
+			Clock.schedule_once(partial(removeArrows, flameRect), .5)
+			Clock.schedule_once(partial(self.updateArrows, flameRect), 0.1)
+
+	def updateArrows(self,arrow,dt):
+		with self.canvas:
+			arrow.pos = (arrow.pos[0]-10,arrow.pos[1])
+			Clock.schedule_once(partial(self.updateArrows, arrow), 0.1)
+		return
+
+	def explode(self):
+		tempsize = Window.width*0.25,Window.height*0.2
+		temppos = (self.x-Window.width*0.095, self.y-Window.width*0.08)
+		with self.canvas:
+			self.explosionRect = Rectangle(source ='./explosion1.png',pos=temppos,size=tempsize)
+		def changeExplosion(rect, newSource, *largs):
+			rect.Source = newSource
+
+		Clock.schedule_once(partial(changeExplosion, self.explosionRect, './explosion2.png'), 0.2)
+		Clock.schedule_once(partial(changeExplosion, self.explosionRect, './explosion3.png'), 0.4)
+		Clock.schedule_once(partial(changeExplosion, self.explosionRect, './explosion4.png'),0.6)
+		Clock.schedule_once(partial(changeExplosion, self.explosionRect, './explosion5.png'),0.8)
+		def  removeExplosion(rect, *largs):
+			self.canvas.remove(rect)
+		Clock.schedule_once(partial(removeExplosion, self.explosionRect),1)
+
 	def update(self):
 		self.determineVelocity()
 		self.move()
 
-class MyButton(Button):
-	def __init__(self, **kwargs):
-		super(MyButton, self).__init__(**kwargs)
-		self.font_size = Window.width*0.018
-
 class GUI(Widget):
 	asteroidList=[]
-	minProb = 1700
+	skorasteroid = NumericProperty(0)
+	minProb = 1780
 	def __init__(self, **kwargs):
 		super(GUI, self).__init__(**kwargs)
-		l = Label(text='Flappy Ship')
-		l.x = Window.width/2 - l.width/2
-		l.y = Window.height*0.8
-		self.add_widget(l)
+
+		self.score = Label(text = '0')
+		self.score.y = Window.height*0.8
+		self.score.x = Window.width*0.2
+
+		def check_score(self,obj):
+			self.score.text = str(self.skorasteroid)
+		self.bind(skorasteroid = check_score)
+		self.add_widget(self.score)
+
 		self.ship = Ship(imageStr = './ship.png')
 		self.ship.x = Window.width/4
 		self.ship.y = Window.height/2
 		self.add_widget(self.ship)
+		Clock.schedule_interval((self.ship.drawArrow), 0.1)
 
 	def addAsteroid(self):
 		imageNumber = randint(1,4)
 		imageStr = './sandstone_'+str(imageNumber)+'.png'
 		tmpAsteroid = Asteroid(imageStr)
 		tmpAsteroid.x = Window.width*0.99
+
 		ypos = randint(1,16)
 		ypos = ypos*Window.height*.0625
 		tmpAsteroid.y = ypos
 		tmpAsteroid.velocity_y = 0
-		vel = randint(10,50)
+		vel = randint(10,25)
 		tmpAsteroid.velocity_x = -0.1*vel
 		self.asteroidList.append(tmpAsteroid)
 		self.add_widget(tmpAsteroid)
 
+	def drawTouchResponse(self,x,y):
+		with self.canvas:
+			tempsize = Window.width*0.07, Window.width*0.07
+			temppos = (x-self.width/4, y-self.height/4)
+			self.arrowRect = Rectangle(source='./flame1.png',pos=temppos,size=tempsize)
+		def removeArrow(arrow, *largs):
+			self.canvas.remove(arrow)
+		def changeExplosion(rect, newSource, *largs):
+			rect.source = newSource
+		Clock.schedule_once(partial(changeExplosion, self.arrowRect, './flame2.png'),0.15)
+		Clock.schedule_once(partial(changeExplosion, self.arrowRect, './flame3.png'),0.30)
+		Clock.schedule_once(partial(changeExplosion, self.arrowRect, './flame4.png'),0.45)
+		Clock.schedule_once(partial(removeArrow, self.arrowRect),0.60)
+
 	def on_touch_down(self, touch):
-		up.play()
 		self.ship.impulse = 3
 		self.ship.grav = -0.1
+		self.drawTouchResponse(touch.x,touch.y)
+
+	def showScore(self):
+		self.scoreWidget = ScoreWidget()
+		self.scoreWidget.skorasteroid = self.skorasteroid
+		self.scoreWidget.prepare()
+		self.add_widget(self.scoreWidget)
+
+	def removeScore(self):
+		self.remove_widget(self.scoreWidget)
 
 	def gameOver(self):
-		restartButton = MyButton(text='Restart')
-
+		restartButton = MyButton(text='Try Again')
 		def restart_button(obj):
-			print 'Restart button pushed'
+			#resetgame
+			self.removeScore()
 			for k in self.asteroidList:
-				self.remove_widget(k)
+				self.remove_widget(K)
 				self.ship.xpos = Window.width*0.25
 				self.ship.ypos = Window.height*0.5
-				self.minProb = 1700
-			self.asteroidList=[]
+				self.minProb = 1780
+				self.skorasteroid = 0
+				self.asteroidList = []
+
 			self.parent.remove_widget(restartButton)
 			Clock.unschedule(self.update)
 			Clock.schedule_interval(self.update, 1.0/60.0)
-		restartButton.size = (Window.width*.3, Window.width*.1)
-		restartButton.pos = Window.width*0.5-restartButton.width/2, Window.height*0.5
-		restartButton.bind(on_release=restart_button)
-		self.parent.add_widget(restartButton)
+			restartButton.size = (Window.width*.3,Window.width*.1)
+			restartButton.pos = Window.width*0.5-restartButton.width/2, Window.height*0.53
+			restartButton.bind(on_release=restart_button)
+			self.parent.add_widget(restartButton)
+			self.showScore()
 
 	def update(self,dt):
 		self.ship.update()
@@ -287,23 +362,41 @@ class GUI(Widget):
 			self.minProb = self.minProb -1
 		for k in self.asteroidList:
 			if k.collide_widget(self.ship):
-				print 'Game Over'
 				self.gameOver()
 				Clock.unschedule(self.update)
-			k.update()
+				self.ship.ecxplode()
+				k.update()
+			if k.x < -100:
+				self.remove_widget(k)
+				self.skorasteroid = self.skorasteroid + 1
+		tmpAsteroidList = self.asteroidList
+		tmpAsteroidList[:] = [x for x in tmpAsteroidList if ((x.x > -100))]
+	        self.asteroidList = tmpAsteroidList
 
 class ClientApp(App):
-
 	def build(self):
-		parent = Widget()
-		app = GUI()
-		Clock.schedule_interval(app.update, 1.0/60.0)
-		parent.add_widget(app)
-		return parent
+		self.parent = Widget()
+		self.app = GUI()
+		self.sm = SmartStartMenu()
+		self.sm.buildUp()
+		def check_button(obj):
+			if self.sm.buttonText == 'start':
+				self.parent.remove_widget(self.sm)
+				print 'Game dimulai sekarang'
+				Clock.unschedule(self.app.update)
+				Clock.schedule_interval(self.app.update, 1.0/60.0)
+				try:
+					self.parent.remove_widget(self.aboutText)
+				except:
+					pass
+			if self.sm.buttonText == 'about':
+				self.aboutText = Label(text = 'Flappy Ship ini hasil editan dari punya orang')
+				self.aboutText.pos = (Window.width*0.45,Window.height*0.35)
+				self.parent.add_widget(self.aboutText)
+		self.sm.bind(on_button_release = check_button)
+		self.parent.add_widget(self.sm)
+		self.parent.add_widget(self.app)
+		return self.parent
 
-
-
-if __name__ == '__main__' :
+if __name__=='__main__':
 	ClientApp().run()
-
-
