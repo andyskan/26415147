@@ -1,0 +1,126 @@
+1  whoami
+    2  sudo su
+    3  cat
+    4  cal
+    5  ll
+    6  whoami
+    7  ps
+    8  pstree
+    9  finger
+   10  su
+   11  echo meong
+   12  top
+   13  sudo apt install git
+   14  mkdir repo
+   15  cd repo/
+   16  git clone https://github.com/andyskan/tos
+   17  ll
+   18  cd tos
+   19  ll
+   20  cat readme.md
+   21  cat README.md
+   22  ls
+   23  git config globabl user.name "Andy Sukanto Kan"
+   24  git config global user.name "Andy Sukanto Kan"
+   25  git
+   26  git config
+   27  dd
+   28  git
+   29  git config global
+   30  git
+   31  git config --global user.name"andyskan"
+   32  git config --global user.email "m26415147@john.petra.ac.id"
+   33  ls
+   34  repo
+   35  /repo
+   36  cd repo
+   37  ls
+   38  cd tos
+   39  ls
+   40  cat README.md
+   41  cd repo
+   42  pwd
+   43  cd..
+   44  cd
+   45  cd ..
+   46  cd repo
+   47  cd andy
+   48  cd repo
+   49  cd ..
+   50  git config --list
+   51  cd repo
+   52  git config --list
+   53  cd tos
+   54  git config --list
+   55  git config --global user.name
+   56  git config --global user.name "Andy Sukanto Kan"
+   57  git config --list
+   58  git status
+   59  ls -la
+   60  touch hello.md
+   61  ls
+   62  nano hello.md
+   63  git status
+   64  git add
+   65  git add hello.md
+   66  git status
+   67  git commit -m "Tambah file hello.md"
+   68  git  status
+   69  git commit
+   70  git push 
+   71  git status
+   72  git ls
+   73  cd ..
+   74  md kucing
+   75  mkd kucing
+   76  mkdir kucing
+   77  cd kucing
+   78  git init
+   79  git add --help
+   80  git pull
+   81  git pull --help
+   82  git pull readme.md
+   83  git pull https://github.com/amandatanari/README.md
+   84  git pull
+   85  git pull --help
+   86  cd..
+   87  cd ..
+   88  cd repo test
+   89  cd test
+   90  cd ..
+   91  cd repo tos
+   92  cd ..
+   93  cd repo cd tos
+   94  cd tos
+   95  clear
+   96  ls
+   97  mkdir tugas1
+   98  cd tugas1
+   99  cp../hello.md
+  100  cp ../hello.md
+  101  cp --help
+  102  cp ../hello.md
+  103  cp ..
+  104  cp ../README.md
+  105  history
+  106  git pull https://github.com/andyskan/tos/README.md
+  107  git pull https://github.com/andyskan/TOS/README.md
+  108  cp ../hello.md
+  109  git cp ../hello.md
+  110  cp ../hello.md
+  111  cp .. hello.md
+  112  cp .. /hello.md
+  113  cp ../ hello.md
+  114  cd ..
+  115  cp hello.md
+  116  cp --help
+  117  git pull
+  118  git status
+  119  cd tugas1
+  120  cp ../hello.md tugas1
+  121  ls
+  122  cat tugas1
+  123  nano tugas1
+  124  nano 
+  125  history
+

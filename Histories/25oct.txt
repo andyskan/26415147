@@ -1,0 +1,959 @@
+    1  sudo apt-get install debhelper dpkg-dev fakeroot
+    2  sudo apt-get build-dep darktable
+    3  $ sudo apt-get install debhelper dpkg-dev fakeroot
+    4  $ sudo apt-get build-dep darktable
+    5  $ tar zxvf darktable_$VERSION.orig.tar.gz
+    6  $ cd darktable-$VERSION
+    7  $ tar zxvf ../darktable_$VERSION.debian.tar.gz
+    8  $ dpkg-buildpackage -rfakeroot
+    9  sudo add-apt-repository ppa:pmjdebruijn/darktable-release
+   10  --help
+   11  help
+   12  h
+   13  man
+   14  pager
+   15  man
+   16  type
+   17  whatis
+   18  whatis help
+   19  whatis hash
+   20  whatis root
+   21  whatis love
+   22  whatis ubuntu
+   23  info
+   24  ls
+   25  ll
+   26  nano
+   27  echo meong
+   28  echo echo
+   29  echo echo echo eh
+   30  cut meong
+   31  cut --help
+   32  sort
+   33  ls
+   34  mkdir repo
+   35  ls
+   36  cd repo
+   37  ls
+   38  nano meong
+   39  ls
+   40  ll
+   41  ls -l
+   42  cd ..
+   43  ls 
+   44  crontab
+   45  cut --help
+   46  mkdir repo
+   47  cd repo
+   48  ls
+   49  rm antz
+   50  ls
+   51  ll
+   52  history
+   53  mv --help
+   54  ..
+   55  cd ..
+   56  nano antz
+   57  mv antz ./repo
+   58  ls
+   59  mv antzh repo
+   60  ls
+   61  cd repo
+   62  ls
+   63  ping
+   64  ping lentera.petra.a.cid
+   65  git
+   66  sudo apt install git
+   67  cd repo
+   68  git config --global user.name "Andy Sukanto"
+   69  git config --global user.email "m26415147@john.petra.ac.id"
+   70  git config
+   71  git clone https://github.com/andyskan/26415147.git
+   72  ls
+   73  cd 26415147
+   74  ls
+   75  perl kucing.pl
+   76  cd ~
+   77  ssh-keygen -t rsa
+   78  cat ~/.ssh/id_rsa.pub
+   79  ll
+   80  cd
+   81  cd ..
+   82  ls
+   83  cd andy
+   84  ls
+   85  ll
+   86  cd .ssh
+   87  cd ~/.ssh
+   88  cd ~
+   89  ssh-keygen -t rsa
+   90  cat ~/.ssh/id_rsa.pub
+   91  git@github.com:andyskan
+   92  ssh git@github.com:andyskan
+   93  ssh -T git@github.com
+   94  cd repo/26415147
+   95  ls
+   96  rm 1
+   97  mkdir tes
+   98  cd tes
+   99  nano meogn
+  100  cd ..
+  101  git add *
+  102  git status
+  103  git commit -m" testing ubuntu dual boot repository after cloned"
+  104  git push
+  105  cd ~
+  106  sudo apt install chromium
+  107  cd repo
+  108  rm -rf 26415147
+  109  ls
+  110  git clone git@github.com:andyskan/26415147.git
+  111  ssh -T git@github.com
+  112  git push
+  113  cd 26415147
+  114  cd ..
+  115  cd 26415147
+  116  git push
+  117  cd ~
+  118  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+  119  echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+  120  sudo apt-get update
+  121  sudo apt-get install spotify-client
+  122  sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" && sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886 && sudo apt-get update -qq && sudo apt-get install spotify-client
+  123  cd repo/26415147
+  124  ls
+  125  cd things
+  126  cd ../tugas1
+  127  ls
+  128  cat tugas1.txt
+  129  cat coba.txt
+  130  cd ..
+  131  ls
+  132  cat lab-01.sh
+  133  cat kucing.pl
+  134  cat lab05-26415147.pl
+  135  cat hello.pl
+  136  clear
+  137  ls
+  138  cd perls
+  139  cat perls
+  140  ls
+  141  cd ..
+  142  cat data.awk
+  143  cat lab-01.sh
+  144  cd things
+  145  ls
+  146  cat lab-02.sh
+  147  curl http://bankmandiri.co.id/resource/kurs.asp|grep 'United States Dollar'
+  148  curl -o uts.html http://bankmandiri.co.id/resource/kurs.asp|grep 'United States Dollar'|awk '{print $1}'
+  149  ls
+  150  grep 'United States Dollar' uts.html
+  151  uts.html
+  152  cat uts.html
+  153  cd ..
+  154  ls
+  155  cd uts nomor 2
+  156  cd utsnomor2
+  157  cd uts_2
+  158  ls
+  159  cat namelist 0
+  160  cat namelist0
+  161  sort namelist0
+  162  cat namelist1
+  163  sort -k 2 namelist0
+  164  sort -t$'-' -k3 namelist0
+  165  cat namelist 0
+  166  cat namelist1
+  167  sort -t$'-' -k3 -k2 namelist0
+  168  sort -t$'-' -k3 -k2 namelist0 <<jawaban.txt
+  169  s
+  170  s
+  171  a
+  172  cd repo/26415147
+  173  mkdir curl_UTS
+  174  curl -s http://bankmandiri.co.id/resource/kurs.asp
+  175  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep 'United States Dollar'
+  176  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep "United States Dollar"
+  177  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep "USD"
+  178  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep "USD"|grep -o '[0-9]*'
+  179  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep "USD"|grep -o '[0-9]*'|$0
+  180  cd ...
+  181  cd ..
+  182  cd repo
+  183  cd ..
+  184  cd repo
+  185  ls
+  186  cd home
+  187  ls
+  188  cd andy/repo
+  189  cd 26415147
+  190  ls
+  191  cd tugas1
+  192  ls
+  193  cd ..
+  194  cd things
+  195  ls
+  196  cat lab-02.sh
+  197  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep "USD"|grep -o '[0-9]*'|xargs
+  198  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep "USD"|grep -o '[0-9]*'|xargs|awk'{printf" Harga Beli : %d\n Harga Jual : %d\n Selisih : %d",$1,$2,$2-$1}'
+  199  nano curl_uts.sh
+  200  chmod +x curl_uts.sh
+  201  ./curl_uts.sh
+  202  nano curl_uts.sh
+  203  ./curl_uts.sh
+  204  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep "USD"|grep -o '[0-9]*'
+  205  curl -s http://bankmandiri.co.id/resource/kurs.asp| grep "USD"|grep -o '[0-9]*'|xargs
+  206  curl --help
+  207  nano curl_uts.sh
+  208  cd ..
+  209  git add *
+  210  git status
+  211  git commit -m "Finished CURLsoal on UTS taun lalu"
+  212  git push
+  213  cd curl_uts
+  214  ls
+  215  cd curl_UTS
+  216  ls
+  217  cd things
+  218  cd ..
+  219  cd things
+  220  ls
+  221  mv curl_uts.sh ../curl_UTS
+  222  cd ../curl_UTS
+  223  ls
+  224  cat curl_uts.sh
+  225  cd ..
+  226  ls
+  227  cd things
+  228  ls
+  229  cat lab-02/sh
+  230  cat lab-02.sh
+  231  ./lab-02.sh
+  232  /sbin/ifconfig
+  233  cd ..
+  234  mkdir data_uts
+  235  cd data_uts
+  236  nano data.sh
+  237  cd ..
+  238  ls
+  239  cd things
+  240  ls
+  241  cd ..
+  242  cd perls
+  243  cd lab-02.sh
+  244  ls
+  245  cat array/pl
+  246  cat array.pl
+  247  cd ../data_uts
+  248  cd ..
+  249  cd data_uts
+  250  ls
+  251  nano data.sh
+  252  cd ../perls
+  253  ls
+  254  cat strings.pl
+  255  cat hash.pl
+  256  cd ..
+  257  ls
+  258  cat kucing.pl
+  259  cd ../data_ust
+  260  cd ../data_uts
+  261  ls
+  262  cd data_uts
+  263  ls
+  264  cat data.pl
+  265  nano data.pl
+  266  cd ..
+  267  ls
+  268  cd ../data_uts
+  269  cd ..
+  270  cd 26415147/data_uts
+  271  meong
+  272  ls
+  273  nano data.pl
+  274  perl data.pl
+  275  nano data.pl
+  276  perl data.pl
+  277  nano data.pl
+  278  perl data.pl
+  279  nano data.pl
+  280  perl data.pl
+  281  nano data.pl
+  282  perl data.pl
+  283  nano data.pl
+  284  perl data.pl
+  285  nano data.pl
+  286  perl data.pl
+  287  nano data.pl
+  288  cd ..
+  289  ls
+  290  cat lab-01.sh
+  291  cd data_uts
+  292  nano data.pl
+  293  perl data.pl
+  294  nano data.pl
+  295  perl data.pl
+  296  nano data.pl
+  297  1
+  298  perl data.pl
+  299  nano data.pl
+  300  cd repo/26415147
+  301  git add *
+  302  git status
+  303  git commit -m "Progress with data soal uts"
+  304  git push
+  305  nano data.pl
+  306  cd repo/26415147
+  307  cd data_uts
+  308  nano data.pl
+  309  perl data.pl
+  310  nano data.pl
+  311  perl data.pl
+  312  nano data.pl
+  313  perl data.pl
+  314  nano data.pl
+  315  perl data.pl
+  316  cd ..
+  317  cat lab-01.sh
+  318  ls
+  319  cat lab05-26415147.pl
+  320  cat things
+  321  cd things
+  322  ls
+  323  cat lab-02.sh
+  324  cut --help
+  325  cat lab-02.sh
+  326  cd ..
+  327  ls
+  328  cd data_uts
+  329  ls
+  330  nano data.pl
+  331  perl data.pl
+  332  nano data.pl
+  333  perl data.pl
+  334  nano data.pl
+  335  perl data.pl
+  336  nano data.pl
+  337  perl data.pl
+  338  nano data.pl
+  339  cd repo/26415147
+  340  cd data_uts
+  341  ls
+  342  history
+  343  history >>data_history.txt
+  344  ls
+  345  nano data.pl
+  346  perl data .pl >> data.txt
+  347  perl data.pl >>data.txt
+  348  fa
+  349  perl data.pl >> data.txt
+  350  cat data.txt
+  351  rm data.txt
+  352  ls
+  353  cd ..
+  354  ls
+  355  cd curl_uts
+  356  cd curl_UTS
+  357  cat curl_uts.sh
+  358  xargs --help
+  359  cd repo/26415147
+  360  cd data_uts
+  361  ls
+  362  data.pl > data.txt
+  363  perl data.pl > data.txt
+  364  3
+  365  cat data.txt
+  366  rm data.txt
+  367  perl -w data.pl > data.txt
+  368  cat data.txt
+  369  rm data.txt
+  370  nano data.pl
+  371  perl data.pl
+  372  perl -w data.pl > data.txt
+  373  cat data.txt
+  374  rm data.txt
+  375  perl data.pl
+  376  nano data.pl
+  377  perl -w  data.pl > data.txt
+  378  cat data.txt
+  379  nano data.pl
+  380  perl data.pl
+  381  nano data.pl
+  382  perl data.pl
+  383  nano data.pl
+  384  perl data.pl
+  385  nano data.pl
+  386  perl data.pl
+  387  nano data.pl
+  388  perl data.pl
+  389  nano data.pl
+  390  chomp --help
+  391  perl chomp --help
+  392  nano data.pl
+  393  perl chomp --help
+  394  perl data.pl
+  395  nano data.pl
+  396  perl data.pl
+  397  nano data.pl
+  398  perl data.pl
+  399  nano data.pl
+  400  nano nomor6.sh
+  401  history
+  402  cd ..
+  403  ls
+  404  cd uts_2
+  405  ls
+  406  cd ..
+  407  git add *
+  408  git status
+  409  git commit -m "added jawaban on uts 2 and some progress for number 6 mid term"
+  410  git push
+  411  cd data_uts
+  412  ls
+  413  nano data.sh
+  414  bash data.sh < data.txt
+  415  chmod +x data.sh
+  416  ./data.sh data.txt
+  417  data .txt
+  418  cat data.txt
+  419  rm data.txt
+  420  cd ..
+  421  ls
+  422  cd tugas1
+  423  ls
+  424  cd ../things
+  425  ls
+  426  cat lab-02.sh
+  427  cd ../data_uts
+  428  ls
+  429  cat data.sh
+  430  nano data.sh
+  431  perl -w data.pl > data.txt
+  432  cat data.txt|awk '{print $0}'
+  433  cat data.txt|awk -F'|' '{print $1}'
+  434  cat data.txt|awk -F'|' '{print $2|$1|$4|$3}' 
+  435  cat data.txt|awk -F'|' '{printf "%s|%s|%s|%s",$2,$1,$4,$3}' 
+  436  cat data.txt|awk -F'|' '{printf "%s|%s|%s|%s\n",$2,$1,$4,$3}' 
+  437  curl google.co.id
+  438  curl -s google.co.id
+  439  history
+  440  curl http://bankmandiri.co.id/resource/kurs.asp
+  441  curl -s http://bankmandiri.co.id/resource/kurs.asp
+  442  cat data.txt|awk -F'|' '{printf "%s|%s|%s|%s\n",$2,$1,$4,$3}' >>data2.txt
+  443  cat data2.txt
+  444  nano data.sh
+  445  rm data2.txt
+  446  ./data.sh
+  447  rm data2.txt
+  448  nano data.sh
+  449  ./data.sh
+  450  grep -v "sananya" data2.txt > data3.txt
+  451  cat data3.txt
+  452  cat data2.txt|xargs
+  453  history
+  454  ls
+  455  nano nomor6.sh
+  456  nano data.sh
+  457  rm nomor6.sh
+  458  ./data.sh
+  459  nano data.sh
+  460  cd ..
+  461  git add *
+  462  git status
+  463  git commit -m "Added data.sh, answer for number 6 data UTS"
+  464  git push
+  465  pwd
+  466  cd ..
+  467  ls
+  468  cd andy
+  469  cd repo/26415147
+  470  ls
+  471  ll
+  472  git status
+  473  cd data_uts
+  474  ll
+  475  cd ...
+  476  cd ..
+  477  mkdir no_4_uts
+  478  cd no_4_uts
+  479  nano data.sh
+  480  nano logic.sh
+  481  wget --help
+  482  nano logic.sh
+  483  ls
+  484  perl logic.pl
+  485  nano logic.sh
+  486  nano logic.pl
+  487  perl logic.pl
+  488  nano logic.pl
+  489  perl logic.pl
+  490  cd repo/26415147
+  491  ls
+  492  cd no_4_uts
+  493  ls
+  494  rm logic.sh
+  495  nano logic.pl
+  496  perl logic.pl
+  497  nano logic.pl
+  498  perl logic.pl
+  499  nano logic.pl
+  500  perl logic.pl
+  501  nano logic.pl
+  502  perl logic.pl
+  503  nano logic.pl
+  504  perl logic.pl
+  505  nano logic.pl
+  506  perl logic.pl
+  507  nano logic.pl
+  508  perl logic.pl
+  509  y
+  510  nano logic.pl
+  511  perl logic.pl
+  512  cd ..
+  513  git add *
+  514  git status
+  515  git commit -m "Added logic.pl, answer for number 4 in perl"
+  516  git push
+  517  git status
+  518  cd ..
+  519  git clone https://github.com/andyskan/TOS.git
+  520  cd tos
+  521  ls
+  522  cd TOS
+  523  cd ../26415147
+  524  ls
+  525  cd uts_2
+  526  ls
+  527  cat jawaban.txt
+  528  nano jawaban.txt
+  529  history
+  530  nano uts_2.sh
+  531  bash uts_2.sh
+  532  nano uts_2.sh
+  533  grep --help
+  534  latex 
+  535  sudo apt install texlive-latex-base
+  536  cd ..
+  537  mkdir LaTex
+  538  cd LaTex
+  539  nano table.tex
+  540  dvips
+  541  dvi
+  542  git statys
+  543  cd ..
+  544  git status 
+  545  git add *
+  546  git commit -m "UTS_2.sh"
+  547  git push
+  548  whoo
+  549  who
+  550  cd.. 
+  551  cd ..
+  552  ssh
+  553  ssh m26415147@opensource.petra.ac.id
+  554  cd as
+  555  ls -as
+  556  ls
+  557  cd repo/26415147
+  558  mkdir mean
+  559  cd mean
+  560  wget http://opensource.petra.ac.id/~m26415145/mean/mean.latex
+  561  latex mean.latex
+  562  ls
+  563  dvips mean.aux
+  564  ps2pdf mean.aux
+  565  ps2pdf mean.dvi
+  566  ps2pdf mean.ps
+  567  latex mean.latex
+  568  dvips mean.ps
+  569  ps2pdf mean.pdf
+  570  ps2pdf mean.ps
+  571  nano mean.latex
+  572  cd ..
+  573  mkdir statistic
+  574  cd ..
+  575  cp mean.latex ../statistic
+  576  cd 26415147/mean
+  577  cp mean.latex ../statistic
+  578  cd ../statistic
+  579  ls
+  580  nano mean.latex
+  581  rm mean.latex statistic.latex
+  582  nano mean.latex
+  583  ls
+  584  cd ../statistic
+  585  cd ../mean
+  586  cp mean.latex ../statistic
+  587  cd ../statistic
+  588  nano mean.latex
+  589  fg
+  590  cd repo/26415147/statistics
+  591  cd repo
+  592  cd 26415147
+  593  cd statistic
+  594  ls
+  595  latex mean.dvi
+  596  dvips mean.ps
+  597  dvips mean.dvi
+  598  ps2pdf mean.ps
+  599  latex stat.latex
+  600  dvips mean.dvi
+  601  ls
+  602  dvips stat.dvi
+  603  ps2pdf stat.pdf
+  604  ps2pdf stat.ps
+  605  nano stat.latex
+  606  latex stat.latex
+  607  dvips stat.dvi
+  608  ps2pdf stat.ps
+  609  nano stat.pdf
+  610  nano stat.latex
+  611  latex stat.latex
+  612  dvips stat.dvi
+  613  ps2pdf stat.ps
+  614  cd repo
+  615  cd 26415147
+  616  ll
+  617  git add *
+  618  git status
+  619  git push
+  620  mkdir uts
+  621  rm -rf uts
+  622  mkdir uts_3
+  623  cd uts_3
+  624  nano hash.perl
+  625  nano hash.pl
+  626  perl hash.pl
+  627  nano hash.pl
+  628  perl hash.pl
+  629  nano hash.pl
+  630  perl hash.pl
+  631  nano hash.pl
+  632  perl hash.pl
+  633  nano hash.pl
+  634  perl hash.pl
+  635  nano hash.pl
+  636  perl hash.pl
+  637  nano hash.pl
+  638  perl hash.pl
+  639  nano hash.pl
+  640  perl hash.pl
+  641  nano hash.pl
+  642  perl hash.pl
+  643  nano hash.pl
+  644  cd ..
+  645  cd uts_3
+  646  nano hash.pl
+  647  perl hash.pl
+  648  nano hash.pl
+  649  perl hash.pl
+  650  nano hash.pl
+  651  perl hash.pl
+  652  nano hash.pl
+  653  perl hash.pl
+  654  nano hash.pl
+  655  perl hash.pl
+  656  nano hash.pl
+  657  perl hash.pl
+  658  nano hash.pl
+  659  perl hash.pl
+  660  nano hash.pl
+  661  nano hash.pl
+  662  perl hash.pl
+  663  nano hash.pl
+  664  perl hash.pl
+  665  nano hash.pl
+  666  perl hash.pl
+  667  nano hash.pl
+  668  perl hash.pl
+  669  nano hash.pl
+  670  perl hash.pl
+  671  nano hash.pl
+  672  perl hash.pl
+  673  nano hash.pl
+  674  perl hash.pl
+  675  nano hash.pl
+  676  perl hash.pl
+  677  nano hash.pl
+  678  perl hash.pl
+  679  nano hash.pl
+  680  cd ..
+  681  git add *
+  682  git status
+  683  git commit -m "Added some file about LATEX, and mid term test no 3"
+  684  git push
+  685  cd repo
+  686  cd 26415147
+  687  mkdir uts_11_okt
+  688  mkdir nomor1
+  689  cd nomor1
+  690  crontab -e
+  691  nano price.sh
+  692  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166 
+  693  cd ..
+  694  ls
+  695  cd curl_uts
+  696  cd curl_UTS
+  697  ls
+  698  nano curl_uts.sh
+  699  cd ..
+  700  cd uts
+  701  cd uts_11_okt
+  702  ls
+  703  ll
+  704  ls
+  705  cd ..
+  706  mv nomor1 uts_11_okt
+  707  cd uts_11_okt
+  708  ls
+  709  cd nomor1
+  710  ls
+  711  nano price.sh
+  712  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdprc"|grep -o '[0-9]*'| :q
+  713  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdprc"|grep -o '[0-9]*'|
+  714  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdPrc|grep -o '[0-9]*'
+  715  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdprc"|grep -o '[0-9]*'
+  716  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166
+  717  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "Apple Iphone 7"
+  718  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdPrc"
+  719  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdPrc|grep -o '[0-9]*'
+  720  nnn
+  721  j
+  722  j'j
+  723  sed '\=</table={p;Q}' ID
+  724  sed '\=</table={p;Q}' ID|grep "ASN"
+  725  nano table.pl
+  726  perl table.pl
+  727  nano coba.pl
+  728  perl coba.pl
+  729  sudo apt get install make
+  730  sudo apt install make
+  731  perl coba.pl
+  732  nano coba.pl
+  733  nano harga.sh
+  734  bash harga.sh
+  735  sudo apt install mailutils
+  736  nano harga.sh
+  737  bash harga.sh
+  738  nano harga.sh
+  739  bash harga.sh
+  740  nano harga.sh
+  741  bash harga.sh
+  742  nano harga.sh
+  743  bash harga.sh
+  744  nano harga.sh
+  745  bash harga.sh
+  746  nano harga.sh
+  747  bash harga.sh
+  748  crontab -e
+  749  crontab -l
+  750  cd ..
+  751  nano UTS-TOS-26415147.txt
+  752  git add *
+  753  cd uts_11_okt
+  754  mkdir nomor2
+  755  cd nomor2
+  756  curl -s http://stats.labs.apnic.net/ipv6/ID
+  757  curl -s http://stats.labs.apnic.net/ipv6/ID|sed 's/.*<tr>//;s/<\/tr>.*//'
+  758  curl -0 http://stats.labs.apnic.net/ipv6/ID stats.html
+  759  ls
+  760  wget http://stats.labs.apnic.net/ipv6/ID stats.html
+  761  ls
+  762  cat id
+  763  nano ID
+  764  sed 's/.*\<table class="tableinfo"//;s/\<\/table\>.*//' ID
+  765  clear
+  766  grep "table" ID
+  767  grep "ASN" ID
+  768  grep "table" ID
+  769  perl -ln0e '/<table.*?table>/s;print $&' file ID
+  770  sed '\=</table={p;Q}'|id
+  771  url -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdPrc"|grep -o '[0-9]*'
+  772  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdPrc"|grep -o '[0-9]*'
+  773  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "prdPrc"
+  774  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "var prdPrc"
+  775  curl -s http://www.elevenia.co.id/prd-apple-iphone-7-plus-black-128gb-garansi-6242166|grep "var prdPrc"|grep -o '[0-9]*'
+  776  cd repo/26415147/uts_11_okt/nomor1
+  777  nano price.sh
+  778  bash price.sh
+  779  nano price.sh
+  780  bash price.sh
+  781  nano price.sh
+  782  bash price.sh
+  783  nano price.sh
+  784  bash price.sh
+  785  nano price.sh
+  786  bash price.sh
+  787  nano price.sh
+  788  mail
+  789  sudo apt install mailutils
+  790  nano price.sh
+  791  ssh m26415147@opensource.petra.ac.id
+  792  cat harga.sh
+  793  gzip -d HTML-TableExtract-2.13.tar.gz
+  794  tar xvf gzip -d HTML-TableExtract-2.13.tar
+  795  cd ..
+  796  cd repo
+  797  cd 26415147
+  798  cd uts_11_okt
+  799  cd nomor2
+  800  ls
+  801  nano coba.pl
+  802  cd ..
+  803  ls
+  804  nano UTS-TOS-26415147.txt
+  805  git add *
+  806  git commit -m "Added UTS TOS 26415147, answer for mid term test"
+  807  git push
+  808  sudo apt install make
+  809  cd download
+  810  ls
+  811  cd Downloads
+  812  gzip -d HTML-TableExtract-2.13.tar.gz\
+  813  cd repo
+  814  cd 26415147
+  815  git commit
+  816  git push
+  817  git log
+  818  clear
+  819  mkdir python
+  820  cd python
+  821  clear
+  822  sudo apt-ger install python
+  823  sudo apt-get install python
+  824  sudo apt-get install python3-minimal
+  825  python
+  826  celar
+  827  clear
+  828  nano hello.py
+  829  python hello.py
+  830  git commit -m "First python script
+  831  "
+  832  git add
+  833  cd ..
+  834  git add *
+  835  cd python
+  836  git commit -m 
+  837  cd ..
+  838  git commit -m "First py script"
+  839  chmod +x test.py
+  840  chmod+x hello.py
+  841  ls
+  842  cd python
+  843  ls
+  844  chmod +x hello.py
+  845  ls
+  846  nano lines.py
+  847  python lines.py
+  848  nano lines.py
+  849  python lines.py
+  850  cd ..
+  851  git add *
+  852  git commit -m "Studying how line and command works in python script"
+  853  cd python
+  854  ls
+  855  nano lines.py
+  856  chmod +x lines.py
+  857  ./lines.py
+  858  python lines.py
+  859  nano lines.py
+  860  python lines.py
+  861  nano lines.py
+  862  python lines.py
+  863  nano lines.py
+  864  python lines.py
+  865  nano lines.py
+  866  python lines.py
+  867  nano lines.py
+  868  python lines.py
+  869  nano lines.py
+  870  python lines.py
+  871  nano lines.py
+  872  git add *
+  873  git status
+  874  git commit -m 
+  875  git commit -m "Modified line.py, added more string example and variables"
+  876  git log
+  877  clear
+  878  ls
+  879  nano string.py
+  880  python string.py
+  881  cd ..
+  882  git add *
+  883  git commit -m "Played string with python, somehow fun"
+  884  cd python
+  885  nano array.py
+  886  fg
+  887  python array.pl
+  888  ls
+  889  python array.py
+  890  nano array.py
+  891  python array.py
+  892  nano array.py
+  893  python array.py
+  894  cd ..
+  895  git add *
+  896  git commit -m "Array and tuples on string"
+  897  git push
+  898  cd repo/26415147
+  899  ls
+  900  git pull
+  901  ls
+  902  mkdir latihan_uts
+  903  mv uts_2 latihan_uts
+  904  mv uts_3 latihan_uts
+  905  mv no_4_uts latihan_uts
+  906  mv curl_uts latihan_uts
+  907  mv curl_UTS latihan_uts
+  908  mv data_uts latihan_uts
+  909  ls
+  910  cd python
+  911  ls
+  912  ll
+  913  cd ..
+  914  ls
+  915  ll
+  916  git add *
+  917  cd python
+  918  ls
+  919  clear
+  920  ls
+  921  nano lines.py
+  922  nano dictionary.py
+  923  python dictionary.py
+  924  nano dictionary.py
+  925  python dictionary.py
+  926  nano dictionary.py
+  927  python dictionary.py
+  928  nano dictionary.py
+  929  python dictionary.py
+  930  nano dictionary.py
+  931  python dictionary.py
+  932  cd ..
+  933  git add *
+  934  git commit -m
+  935  git commit -m "Python Dictionary learned"
+  936  cd python
+  937  nano dictionary.py
+  938  python dictionary.py
+  939  nano dictionary.py
+  940  python dictionary.py
+  941  nano dictionary.py
+  942  python dictionary.py
+  943  nano dictionary.py
+  944  python dictionary.py
+  945  nano dictionary.py
+  946  python dictionary.py
+  947  nano dictionary.py
+  948  python dictionary.py
+  949  clear
+  950  meong 
+  951  meong m
+  952  meong 
+  953  clear
+  954  history
+  955  cd ..
+  956  cd ls
+  957  ls
+  958  cd Histories
+  959  history >> 25oct.txt
