@@ -7,14 +7,14 @@ from kivy.uix.button import Button
 from kivy.core.window import Window
 from kivy.properties import NumericProperty
 from kivy.clock import Clock
-from kivy.graphics import Rectangle
+fryom kivy.graphics import Rectangle
 from random import *
 from kivy.config import Config
 from kivy.uix.image import Image
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty
-
+from kivy.core.audio import SoundLoader
 from kivy.graphics import Rectangle, Color, Canvas
 from functools import partial
 
@@ -22,7 +22,8 @@ from functools import partial
 Config.set('graphics','resizeable', 0)
 #graphics
 Window.clearcolor = (0,0,0,1.)
-
+#sound
+up=SoundLoader.load('naik.wav')
 class WidgetDrawer(Widget):
 
 	def __init__(self, imageStr, **kwargs):
@@ -117,6 +118,7 @@ class GUI(Widget):
 		self.add_widget(tmpAsteroid)
 
 	def on_touch_down(self, touch):
+		up.play()
 		self.ship.impulse = 3
 		self.ship.grav = -0.1
 
