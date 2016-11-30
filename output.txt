@@ -1,4 +1,0 @@
-Kategori	Banyak	JumlahTRata-Rata
-KS	3	37000	12333
-S	2	15000	7500
-TS	3	38000	12666

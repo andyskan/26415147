@@ -1,7 +1,0 @@
-syntax: glob
-
-*.pyc
-*.swp
-dist
-build
-pymultinode.egg-info

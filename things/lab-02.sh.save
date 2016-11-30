@@ -1,3 +1,0 @@
-#!/bin/bash
-
-/sbin/ifconfig|grep 'inet addr'|cut -d : -f2|awk '{print $1}'|sort|xargs|awk '{printf
