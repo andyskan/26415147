@@ -48,8 +48,8 @@ class WidgetDrawer(Widget):
 		self.y=ypos
 
 class Asteroid(WidgetDrawer):
-	velocity_x=NumericProperty(0)
-	velocity_y=NumericProperty(0)
+	velocity_x = NumericProperty(0)
+	velocity_y = NumericProperty(0)
 
 	def move(self):
 		self.x = self.x + self.velocity_x
@@ -113,7 +113,7 @@ class GUI(Widget):
 		tmpAsteroid.y = ypos
 		tmpAsteroid.velocity_y = 0
 		vel = 10
-		tmpAsteroid.velocity_x = -0.1*vel
+		tmpAsteroid.velocity_x = -1
 		self.asteroidList.append(tmpAsteroid)
 		self.add_widget(tmpAsteroid)
 
