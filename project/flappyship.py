@@ -202,11 +202,13 @@ class MyButton(Button):
 
 class GUI(Widget):
 	asteroidList=[]
-	atas=NumericProperty(35)
+	atas=NumericProperty(1)
 	cek=NumericProperty(0)
 	atashard=NumericProperty(45)
 	bawahhard=NumericProperty(125)
-	bawah=NumericProperty(130)
+	bawah=NumericProperty(25)
+	atasMed=NumericProperty(20)
+	bawahMed=NumericProperty(80)
 	asteroidScore=NumericProperty(0)
 	minProb = 1700
 	def __init__(self, **kwargs):
@@ -230,8 +232,10 @@ class GUI(Widget):
 		 tmpAsteroid.y = ypos
 		 tmpAsteroid.velocity_y = 0
 		 if self.cek == 0:
-		 	vel=randint(self.atas,self.bawah)
+			 vel=randint(self.atas,self.bawah)
 		 if self.cek == 1:
+		 	vel=randint(self.atasMed,self.bawahMed)
+		 if self.cek == 2:
 			vel=randint(self.atashard,self.bawahhard)
 		 tmpAsteroid.velocity_x = -0.1*vel
 		 self.asteroidList.append(tmpAsteroid)
@@ -339,9 +343,9 @@ class ClientApp(App):
 				except:
 					pass
 			if self.sm.buttonText == 'Medium':
-				self.app.atas=1
-				self.app.cek=0
-				self.app.bawah=25
+				#self.app.atas=1
+				self.app.cek=1
+				#self.app.bawah=25
 				self.parent.remove_widget(self.sm)
 				print 'Mulai medium'
 				music.play()
@@ -352,9 +356,9 @@ class ClientApp(App):
 				except:
 					pass
 			if self.sm.buttonText == 'Hard':
-				self.app.atas=1
-				self.app.cek=1
-				self.app.bawah=25
+				#self.app.atas=1
+				self.app.cek=2
+				#self.app.bawah=25
 				self.parent.remove_widget(self.sm)
 				print 'Mulai Hard'
 				music.play()
