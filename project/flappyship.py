@@ -20,13 +20,13 @@ from kivy.properties import ObjectProperty
 from kivy.core.audio import SoundLoader
 from kivy.graphics import Rectangle, Color, Canvas
 from functools import partial
-
 #setup graphics
 Config.set('graphics','resizeable', 0)
 #graphics
 Window.clearcolor = (0,0,0.025,1.)
 #sound
 up=SoundLoader.load('naik.wav')
+music=SoundLoader.load('music.wav')
 
 class SmartMenu(Widget):
 	buttonList = []
@@ -51,7 +51,14 @@ class SmartMenu(Widget):
 	def addButtons(self):
 		for k in self.buttonList:
 			tempbutton = MyButton(text = k)
-			tempbutton.backgrounf_color = [.4, .4, .4, .4]
+			tempbutton.background_color = [.4, .4, .4, .4]
+			tempbutton.bind(on_release = self.callback)
+			self.layout.add_widget(tempbutton)
+
+	def addButtons(self):
+		for k in self.buttonList:
+			tempbutton = MyButton(text = k)
+			tempbutton.background_color = [.4, .4, .4, .4]
 			tempbutton.bind(on_release = self.callback)
 			self.layout.add_widget(tempbutton)
 
@@ -59,7 +66,7 @@ class SmartMenu(Widget):
 		self.addButtons()
 
 class SmartStartMenu(SmartMenu):
-	buttonList = ['Easy', 'Hard', 'Medium', 'About']
+	buttonList = ['Easy', 'Medium', 'Hard', 'About']
 
 	def __init__(self, **kwargs):
 		super(SmartStartMenu, self).__init__(**kwargs)
@@ -106,7 +113,7 @@ class WidgetDrawer(Widget):
 	def setSize(self,width, height):
 		self.size=(width, height)
 
-	def setPOs(xpos,ypos):
+	def setPos(xpos,ypos):
 		self.x=xpos
 		self.y=ypos
 
@@ -133,59 +140,20 @@ class ScoreWidget(Widget):
 		scoreText = 'Score : 0' # + str(self.FinalScore)
 		self.scoreLabel = Label(text = scoreText, font_size = '20sp')
 		self.scoreLabel.x = Window.width*0.3
-		self.scoreLabel.y = Window.height*0.3
+		self.scoreLabel.y = Window.height*0.6
 		self.add_widget(self.scoreLabel)
 		Clock.schedule_once(self.updateScore, .1)
-		self.drawStars()
-
 	def updateScore(self,dt):
 		self.skorsekarang = self.skorsekarang + 100
 		self.scoreLabel.text = 'Score : ' + str(self.skorsekarang)
 		if self.skorsekarang < self.finalScore:
 			Clock.schedule_once(self.updateScore, 0.1)
 
-	def drawStars(self):
-		starNumber = 0
-		if self.skorasteroid > 10:
-			starNumber = 1
-		if self.skorasteroid > 50:
-			starNumber = 2
-		if self.skorasteroid > 200:
-			starNumber = 3
-		if self.skorasteroid > 500:
-			starNumber = 4
-		if self.skorasteroid > 1000:
-			starNumber = 5
-
-		with self.canvas:
-			starPos = Window.width*0.27,Window.height*0.42
-		starSize = Window.width*0.06,Window.width*0.06
-		starString = 'gold_star.png'
-		if starNumber < 1:
-			starString = 'gray_star.png'
-		starRectOne = Rectangle(source=starString, pos=starPos, size=starSize)
-		starPos = Window.width*0.37, Window.heighy*0.42
-		if starNumber < 2:
-			starString = 'gray_star.png'
-		starRectTwo = Rectangle(source=starString, pos=starPos, soze=starSize)
-		starPos = Window.width*0.47, Window.heighy*0.42
-		if starNumber < 3:
-			starString = 'gray_star.png'
-		starRectThree = Rectangle(source=starString,pos=starPos,size=starSize)
-		starPos = Window.width*0.57, Window.heighy*0.42
-		if starNumber < 4:
-			starString = 'gray_star.png'
-		starRectFour = Rectangle(source=starString, pos=starPos, size=starSize)
-		starPos = Window.width*0.67, Window.heighy*0.42
-		if starNumber < 5:
-			starString = 'gray_star.png'
-		starRectFive = Rectangle(source=starString, pos=starPos, size=starSize)
-
-
-
 class Asteroid(WidgetDrawer):
 	velocity_x = NumericProperty(0)
 	velocity_y = NumericProperty(0)
+	cek= False
+
 
 	def move(self):
 		self.x = self.x + self.velocity_x
@@ -208,6 +176,13 @@ class Ship(WidgetDrawer):
 		if self.y == Window.height*0.95:
 			self.impulse = -3
 
+                if self.y < Window.height*0.05:
+			self.impulse = 1
+			self.grav = -0.1
+
+		if self.y > Window.height*0.95:
+			self.impulse = -3
+
 	def determineVelocity(self):
 		self.grav = self.grav*1.05
 		if self.grav < -4:
@@ -227,6 +202,12 @@ class MyButton(Button):
 
 class GUI(Widget):
 	asteroidList=[]
+	atas=NumericProperty(35)
+	cek=NumericProperty(0)
+	atashard=NumericProperty(45)
+	bawahhard=NumericProperty(125)
+	bawah=NumericProperty(130)
+	asteroidScore=NumericProperty(0)
 	minProb = 1700
 	def __init__(self, **kwargs):
 		super(GUI, self).__init__(**kwargs)
@@ -240,42 +221,80 @@ class GUI(Widget):
 		self.add_widget(self.ship)
 
 	def addAsteroid(self):
-		imageNumber = randint(1,4)
-		imageStr = './sandstone_'+str(imageNumber)+'.png'
-		tmpAsteroid = Asteroid(imageStr)
-		tmpAsteroid.x = Window.width*0.99
-		ypos = randint(1,16)
-		ypos = ypos*Window.height*.0625
-		tmpAsteroid.y = ypos
-		tmpAsteroid.velocity_y = 0
-		vel = randint(10,50)
-		tmpAsteroid.velocity_x = -0.1*vel
-		self.asteroidList.append(tmpAsteroid)
-		self.add_widget(tmpAsteroid)
+		 imageNumber = randint(1,4)
+		 imageStr = './sandstone_'+str(imageNumber)+'.png'
+		 tmpAsteroid = Asteroid(imageStr)
+		 tmpAsteroid.x = Window.width*0.99
+		 ypos = randint(1,16)
+		 ypos = ypos*Window.height*.0625
+		 tmpAsteroid.y = ypos
+		 tmpAsteroid.velocity_y = 0
+		 if self.cek == 0:
+		 	vel=randint(self.atas,self.bawah)
+		 if self.cek == 1:
+			vel=randint(self.atashard,self.bawahhard)
+		 tmpAsteroid.velocity_x = -0.1*vel
+		 self.asteroidList.append(tmpAsteroid)
+		 self.add_widget(tmpAsteroid)
 
 	def on_touch_down(self, touch):
 		up.play()
 		self.ship.impulse = 3
 		self.ship.grav = -0.1
-
+	def showScore(self):
+		self.scoreWidget=ScoreWidget()
+		self.scoreWidget.skorasteroid=self.asteroidScore
+		self.scoreWidget.prepare()
+		self.add_widget(self.scoreWidget)
+	def removeScore(self):
+		self.remove_widget(self.scoreWidget)
 	def gameOver(self):
 		restartButton = MyButton(text='Restart')
+		backButton = MyButton(text='Exit')
 
 		def restart_button(obj):
 			print 'Restart button pushed'
+			self.removeScore()
 			for k in self.asteroidList:
 				self.remove_widget(k)
 				self.ship.xpos = Window.width*0.25
 				self.ship.ypos = Window.height*0.5
 				self.minProb = 1700
-			self.asteroidList=[]
+				self.asteroidScore=0
+				self.asteroidList=[]
+
 			self.parent.remove_widget(restartButton)
+			self.parent.remove_widget(backButton)
 			Clock.unschedule(self.update)
 			Clock.schedule_interval(self.update, 1.0/60.0)
+		def back_button(obj):
+			print 'Keluar'
+			self.parent = Widget()
+			self.app = GUI()
+			self.sm = SmartStartMenu()
+			self.sm.buildUp()
+			for k in self.asteroidList:
+					self.remove_widget(k)
+					self.ship.xpos = Window.width*0.25
+					self.ship.ypos = Window.height*0.5
+					self.minProb = 1700
+					self.asteroidScore=0
+					self.asteroidList=[]
+			self.parent.remove_widget(restartButton)
+			self.parent.remove_widget(backButton)
+			self.sm.bind(on_button_release = self.check_button)
+			self.parent.add_widget(self.sm)
+			self.parent.add_widget(self.app)
+			return self.parent
 		restartButton.size = (Window.width*.3, Window.width*.1)
 		restartButton.pos = Window.width*0.5-restartButton.width/2, Window.height*0.5
 		restartButton.bind(on_release=restart_button)
+		backButton.size = (Window.width*.3, Window.width*.1)
+		backButton.pos = Window.width*0.5-restartButton.width/2, Window.height*0.5-restartButton.height/1.2
+		backButton.bind(on_release=back_button)
 		self.parent.add_widget(restartButton)
+		self.parent.add_widget(backButton)
+		self.showScore()
 
 	def update(self,dt):
 		self.ship.update()
@@ -292,18 +311,67 @@ class GUI(Widget):
 				Clock.unschedule(self.update)
 			k.update()
 
+			if k.x < self.ship.x and k.cek == False:
+				self.asteroidScore=self.asteroidScore+1
+				k.cek=True
+			if k.x < -100:
+				self.remove_widget(k)
+				tmpAsteroidList=self.asteroidList
+				tmpAsteroidList[:]=[x for x in tmpAsteroidList if ((x.x > -100))]
+				self.aster=tmpAsteroidList
+
 class ClientApp(App):
-
+	music.play()
 	def build(self):
-		parent = Widget()
-		app = GUI()
-		Clock.schedule_interval(app.update, 1.0/60.0)
-		parent.add_widget(app)
-		return parent
-
-
+		self.parent = Widget()
+		self.app = GUI()
+		self.sm = SmartStartMenu()
+		self.sm.buildUp()
+		def check_button(obj):
+			if self.sm.buttonText == 'Easy':
+				self.parent.remove_widget(self.sm)
+				print 'Mulai game'
+				music.play()
+				Clock.unschedule(self.app.update)
+				Clock.schedule_interval(self.app.update, 1.0/60.0)
+				try:
+					self.parent.remove_widget(self.aboutText)
+				except:
+					pass
+			if self.sm.buttonText == 'Medium':
+				self.app.atas=1
+				self.app.cek=0
+				self.app.bawah=25
+				self.parent.remove_widget(self.sm)
+				print 'Mulai medium'
+				music.play()
+				Clock.unschedule(self.app.update)
+				Clock.schedule_interval(self.app.update, 1.0/440.0)
+				try:
+					self.parent.remove_widget(self.aboutText)
+				except:
+					pass
+			if self.sm.buttonText == 'Hard':
+				self.app.atas=1
+				self.app.cek=1
+				self.app.bawah=25
+				self.parent.remove_widget(self.sm)
+				print 'Mulai Hard'
+				music.play()
+				Clock.unschedule(self.app.update)
+				Clock.schedule_interval(self.app.update, 1.0/550.0)
+				try:
+					self.parent.remove_widget(self.aboutText)
+				except:
+					pass
+			if self.sm.buttonText == 'About':
+				self.aboutText = Label(text = 'Proyek TOS')
+				self.aboutText.pos = (Window.width*1.78/4,Window.height/4)
+				self.parent.add_widget(self.aboutText)
+		self.sm.bind(on_button_release = check_button)
+		self.parent.add_widget(self.sm)
+		self.parent.add_widget(self.app)
+		return self.parent
 
 if __name__ == '__main__' :
 	ClientApp().run()
-
-
